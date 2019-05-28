@@ -5,6 +5,7 @@
     totallyTyped="false"
 >
     <projectFiles>
+        <directory name="config-templates" />
         <directory name="hooks" />
         <directory name="templates" />
         <directory name="www" />
