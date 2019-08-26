@@ -11,11 +11,11 @@ if (count($this->data['errors']) > 0) {
     foreach ($this->data['errors'] as $err) {
         echo '<li>'.$err.'</li>';
     }
-}
 ?>
     </ul>
 </div>
 <?php
+}
 if (count($this->data['info']) > 0) {
     echo '<div style="border: 1px solid #ccc; background: #eee; margin: 1em; padding: .5em">';
     echo '<p><img class="float-r" src="/'.$this->data['baseurlpath'].
