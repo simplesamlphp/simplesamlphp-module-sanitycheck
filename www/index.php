@@ -1,26 +1,19 @@
 <?php
 
-$config = \SimpleSAML\Configuration::getInstance();
 
-$info = [];
-$errors = [];
-$hookinfo = [
-    'info' => &$info,
-    'errors' => &$errors,
-];
-\SimpleSAML\Module::callHooks('sanitycheck', $hookinfo);
+namespace SimpleSAML\Module\sanitycheck;
 
-if (isset($_REQUEST['output']) && $_REQUEST['output'] == 'text') {
-    if (count($errors) === 0) {
-        echo 'OK';
-    } else {
-        echo 'FAIL';
-    }
-    exit;
-}
+use SimpleSAML\Configuration;
+use SimpleSAML\Module\sanitycheck\Controller;
+use SimpleSAML\Session;
+use Symfony\Component\HttpFoundation\Request;
 
-$t = new \SimpleSAML\XHTML\Template($config, 'sanitycheck:check.tpl.php');
-$t->data['pageid'] = 'sanitycheck';
-$t->data['errors'] = $errors;
-$t->data['info'] = $info;
-$t->show();
+$config = Configuration::getInstance();
+$session = Session::getSessionFromRequest();
+$request = Request::createFromGlobals();
+
+$controller = new Controller\SanityCheck($config, $session);
+$output = $request->get('output');
+
+$response = $controller->main($output);
+$response->send();

@@ -1,0 +1,3 @@
+sanity-main:
+    path:       /{output}
+    defaults:   { _controller: 'SimpleSAML\Module\sanitycheck\Controller\SanityCheck::main', output: null }
