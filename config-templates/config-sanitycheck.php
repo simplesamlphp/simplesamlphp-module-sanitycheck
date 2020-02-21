@@ -1,4 +1,5 @@
 <?php
+
 /*
  * The configuration of SimpleSAMLphp sanitycheck package
  */

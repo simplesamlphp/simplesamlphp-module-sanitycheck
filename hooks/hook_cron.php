@@ -1,5 +1,9 @@
 <?php
 
+use Exception;
+use SimpleSAML\Configuration;
+use SimpleSAML\Logger;
+use SimpleSAML\Module;
 use Webmozart\Assert\Assert;
 
 /**
@@ -8,16 +12,15 @@ use Webmozart\Assert\Assert;
  * @param array &$croninfo  Output
  * @return void
  */
-function sanitycheck_hook_cron(&$croninfo)
+function sanitycheck_hook_cron(array &$croninfo): void
 {
-    Assert::isArray($croninfo);
     Assert::keyExists($croninfo, 'summary');
     Assert::keyExists($croninfo, 'tag');
 
-    \SimpleSAML\Logger::info('cron [sanitycheck]: Running cron in cron tag ['.$croninfo['tag'].'] ');
+    Logger::info('cron [sanitycheck]: Running cron in cron tag [' . $croninfo['tag'] . '] ');
 
     try {
-        $sconfig = \SimpleSAML\Configuration::getOptionalConfig('config-sanitycheck.php');
+        $sconfig = Configuration::getOptionalConfig('config-sanitycheck.php');
 
         $cronTag = $sconfig->getString('cron_tag', null);
         if ($cronTag === null || $cronTag !== $croninfo['tag']) {
@@ -31,14 +34,14 @@ function sanitycheck_hook_cron(&$croninfo)
             'errors' => &$errors,
         ];
 
-        SimpleSAML\Module::callHooks('sanitycheck', $hookinfo);
+        Module::callHooks('sanitycheck', $hookinfo);
 
         if (count($errors) > 0) {
             foreach ($errors as $err) {
-                $croninfo['summary'][] = 'Sanitycheck error: '.$err;
+                $croninfo['summary'][] = 'Sanitycheck error: ' . $err;
             }
         }
-    } catch (\Exception $e) {
-        $croninfo['summary'][] = 'Error executing sanity check: '.$e->getMessage();
+    } catch (Exception $e) {
+        $croninfo['summary'][] = 'Error executing sanity check: ' . $e->getMessage();
     }
 }

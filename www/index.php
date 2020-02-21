@@ -1,6 +1,5 @@
 <?php
 
-
 namespace SimpleSAML\Module\sanitycheck;
 
 use SimpleSAML\Configuration;

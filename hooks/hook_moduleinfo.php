@@ -8,9 +8,8 @@ use Webmozart\Assert\Assert;
  * @param array &$moduleinfo  The links on the frontpage, split into sections.
  * @return void
  */
-function sanitycheck_hook_moduleinfo(&$moduleinfo)
+function sanitycheck_hook_moduleinfo(array &$moduleinfo): void
 {
-    Assert::isArray($moduleinfo);
     Assert::keyExists($moduleinfo, 'info');
 
     $moduleinfo['info']['sanitycheck'] = [
