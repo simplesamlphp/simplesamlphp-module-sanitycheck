@@ -69,7 +69,7 @@ class SanityCheck
             return $response;
         }
 
-        $t = new Template($config, 'sanitycheck:check.tpl.php');
+        $t = new Template($this->config, 'sanitycheck:check.twig');
         $t->data['pageid'] = 'sanitycheck';
         $t->data['errors'] = $errors;
         $t->data['info'] = $info;
