@@ -6,6 +6,7 @@ use SimpleSAML\Configuration;
 use SimpleSAML\Module;
 use SimpleSAML\Session;
 use SimpleSAML\XHTML\Template;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -46,11 +47,12 @@ class SanityCheck
     /**
      * Show sanity check.
      *
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param string|null $output
      * @return \Symfony\Component\HttpFoundation\Response
      *   A Symfony Response-object.
      */
-    public function main($output)
+    public function main(Request $request, ?string $output): Response
     {
         $info = [];
         $errors = [];
