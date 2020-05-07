@@ -51,7 +51,7 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
      * Test that a valid requests results in a Twig template
      * @return void
      */
-    public function testValidRequestWithoutParams()
+    public function testValidRequestWithoutParams(): void
     {
         $request = Request::create(
             '/',
@@ -73,7 +73,7 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
      * Test that a valid requests with output=text results in a Response
      * @return void
      */
-    public function testValidRequestWithOutputText()
+    public function testValidRequestWithOutputText(): void
     {
         $request = Request::create(
             '/',
@@ -98,7 +98,7 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
      * Test that a valid requests with output=text and missing configuration results in a Response
      * @return void
      */
-    public function testValidRequestWithOutputTextAndMissingConfig()
+    public function testValidRequestWithOutputTextAndMissingConfig(): void
     {
         $this->config = Configuration::loadFromArray(
             [
