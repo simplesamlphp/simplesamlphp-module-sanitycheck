@@ -21,18 +21,13 @@
             "SimpleSAML\\Module\\sanitycheck\\": "lib/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "SimpleSAML\\Test\\Utils\\": "vendor/simplesamlphp/simplesamlphp/tests/Utils"
-        }
-    },
     "require": {
         "php": ">=7.2",
         "simplesamlphp/simplesamlphp": "dev-master",
         "simplesamlphp/composer-module-installer": "~1.1"
     },
     "require-dev": {
-        "simplesamlphp/simplesamlphp-test-framework": "^0.1.3"
+        "simplesamlphp/simplesamlphp-test-framework": "^0.2.7"
     },
     "support": {
         "issues": "https://github.com/simplesamlphp/simplesamlphp-module-sanitycheck/issues",

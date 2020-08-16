@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SimpleSAML\Test\Module\sanitycheck\Controller;
 
-//use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 use SimpleSAML\Auth;
 use SimpleSAML\Configuration;
 use SimpleSAML\Error;
@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package SimpleSAML\Test
  */
-class SanityCheckTest extends \PHPUnit\Framework\TestCase
+class SanityCheckTest extends TestCase
 {
     /** @var \SimpleSAML\Configuration */
     protected $config;
@@ -64,7 +64,6 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
         /** @var \SimpleSAML\XHTML\Template $response */
         $response = $c->main($request, null);
 
-        $this->assertInstanceOf(Template::class, $response);
         $this->assertTrue($response->isSuccessful());
     }
 
@@ -84,10 +83,9 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
 
         $c = new Controller\SanityCheck($this->config, $session);
 
-        /** @var Symfony\Component\HttpFoundation\Response $response */
+        /** @var \Symfony\Component\HttpFoundation\Response $response */
         $response = $c->main($request, 'text');
 
-        $this->assertInstanceOf(Response::class, $response);
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('OK', $response->getContent());
         $this->assertEquals('text/html', $response->headers->get('content-type'));
@@ -104,8 +102,6 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
             [
                 'baseurlpath' => 'https://example.org/simplesaml',
                 'module.enable' => ['sanitycheck' => true],
-//                'technicalcontact_email' => 'info@example.org',
-//                'auth.adminpassword' => '$2y$10$7Zw5yXm5LmnOlG8UY53/CO0mrCroGVNFrapNL0xHaD29zTkLR0Gl6',
             ],
             '[ARRAY]',
             'simplesaml'
@@ -122,10 +118,9 @@ class SanityCheckTest extends \PHPUnit\Framework\TestCase
 
         $c = new Controller\SanityCheck($this->config, $session);
 
-        /** @var Symfony\Component\HttpFoundation\Response $response */
+        /** @var \Symfony\Component\HttpFoundation\Response $response */
         $response = $c->main($request, 'text');
 
-        $this->assertInstanceOf(Response::class, $response);
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('FAIL', $response->getContent());
         $this->assertEquals('text/html', $response->headers->get('content-type'));
