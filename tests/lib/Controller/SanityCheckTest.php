@@ -26,7 +26,6 @@ class SanityCheckTest extends TestCase
 
     /**
      * Set up for each test.
-     * @return void
      */
     protected function setUp(): void
     {
@@ -49,7 +48,6 @@ class SanityCheckTest extends TestCase
 
     /**
      * Test that a valid requests results in a Twig template
-     * @return void
      */
     public function testValidRequestWithoutParams(): void
     {
@@ -70,7 +68,6 @@ class SanityCheckTest extends TestCase
 
     /**
      * Test that a valid requests with output=text results in a Response
-     * @return void
      */
     public function testValidRequestWithOutputText(): void
     {
@@ -94,7 +91,6 @@ class SanityCheckTest extends TestCase
 
     /**
      * Test that a valid requests with output=text and missing configuration results in a Response
-     * @return void
      */
     public function testValidRequestWithOutputTextAndMissingConfig(): void
     {
