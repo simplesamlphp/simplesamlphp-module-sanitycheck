@@ -22,12 +22,12 @@
         }
     },
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "simplesamlphp/simplesamlphp": "dev-master",
         "simplesamlphp/composer-module-installer": "~1.1"
     },
     "require-dev": {
-        "simplesamlphp/simplesamlphp-test-framework": "^0.2.7"
+        "simplesamlphp/simplesamlphp-test-framework": "^1.0.3"
     },
     "support": {
         "issues": "https://github.com/simplesamlphp/simplesamlphp-module-sanitycheck/issues",
