@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
  *
  * @param array &$hookinfo  hookinfo
  */
-function sanitycheck_hook_sanitycheck(array &$hookinfo)
+function sanitycheck_hook_sanitycheck(array &$hookinfo): void
 {
     Assert::keyExists($hookinfo, 'errors');
     Assert::keyExists($hookinfo, 'info');
