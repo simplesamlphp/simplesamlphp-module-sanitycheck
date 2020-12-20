@@ -1,5 +1,6 @@
 <?php
 
+use SimpleSAML\Locale\Translate;
 use SimpleSAML\Module;
 use Webmozart\Assert\Assert;
 
