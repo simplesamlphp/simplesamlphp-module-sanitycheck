@@ -80,7 +80,6 @@ class SanityCheckTest extends TestCase
 
         $c = new Controller\SanityCheck($this->config, $session);
 
-        /** @var \Symfony\Component\HttpFoundation\Response $response */
         $response = $c->main($request, 'text');
 
         $this->assertTrue($response->isSuccessful());
@@ -114,7 +113,6 @@ class SanityCheckTest extends TestCase
 
         $c = new Controller\SanityCheck($this->config, $session);
 
-        /** @var \Symfony\Component\HttpFoundation\Response $response */
         $response = $c->main($request, 'text');
 
         $this->assertTrue($response->isSuccessful());
