@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SimpleSAML\Module\sanitycheck\Controller;
 
 use SimpleSAML\Configuration;
@@ -19,10 +21,10 @@ use Symfony\Component\HttpFoundation\Response;
 class SanityCheck
 {
     /** @var \SimpleSAML\Configuration */
-    protected $config;
+    protected Configuration $config;
 
     /** @var \SimpleSAML\Session */
-    protected $session;
+    protected Session $session;
 
 
     /**

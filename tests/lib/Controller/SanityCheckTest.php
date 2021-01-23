@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SanityCheckTest extends TestCase
 {
     /** @var \SimpleSAML\Configuration */
-    protected $config;
+    protected Configuration $config;
 
     /**
      * Set up for each test.
